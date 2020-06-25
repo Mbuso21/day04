@@ -6,11 +6,12 @@
 /*   By: mmehloma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 14:35:27 by mmehloma          #+#    #+#             */
-/*   Updated: 2020/06/25 16:22:09 by mmehloma         ###   ########.fr       */
+/*   Updated: 2020/06/25 16:32:45 by mmehloma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -38,26 +39,25 @@ void ft_putnbr(int nb)
 int ft_recursive_factorial(int nb)
 {
 	int				i;
-	long long int	res;
 
-	if (nb < 0)
-		return (0);
-	
-	i = 2;
-	res = 1;
-	
-	while (i <= nb)
-	{
-		res *= i;
-		++i;
-	}
-	return (res * ft_recursive_factorial(nb - 1));
+	i = 0;
+
+	if(nb < 0)
+		return -1;
+
+	if(nb == 1)
+		return 1;
+
+	return (nb * ft_recursive_factorial(nb - 1));
 }
 
 int main(void)
 {
         int n;
-        n = ft_recursive_factorial(5);
-        ft_putnbr(n);
+		int m;
+		n = 5;
+        m  = ft_recursive_factorial(n);
+        //ft_putnbr(n);
+		printf("%d", m);
         return 0;
 }
